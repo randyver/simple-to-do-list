@@ -47,22 +47,24 @@ export default function SignUpForm() {
   };
 
   return (
-    <Card className="mx-6 w-full md:w-6/12 md:w-5/12 lg:w-4/12 xl:w-3/12">
-      <CardHeader><CardTitle className="text-center lg:text-2xl text-bold xl:text-4xl">Sign Up</CardTitle></CardHeader>
+    <Card className="mx-6 w-full md:w-5/12 md:w-6/12 lg:w-4/12 xl:w-3/12">
+      <CardHeader>
+        <CardTitle className="text-bold text-center lg:text-2xl xl:text-4xl">
+          Sign Up
+        </CardTitle>
+      </CardHeader>
       <CardContent>
         <Form {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-2 mx-auto max-w-md"
+            className="mx-auto flex max-w-md flex-col gap-2"
           >
             <FormField
               name="username"
               control={methods.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Username
-                  </FormLabel>
+                  <FormLabel>Username</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -82,9 +84,7 @@ export default function SignUpForm() {
               control={methods.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Email
-                  </FormLabel>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -104,9 +104,7 @@ export default function SignUpForm() {
               control={methods.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Password
-                  </FormLabel>
+                  <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -121,11 +119,16 @@ export default function SignUpForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="mt-12 bg-blue-400">Sign Up</Button>
+            <Button type="submit" className="mt-12 bg-blue-400 hover:bg-blue-200">
+              Sign Up
+            </Button>
           </form>
         </Form>
-        <p className="text-center mt-4">
-          Sudah memiliki akun? <Link href="/login" className="text-blue-400">Login</Link>
+        <p className="mt-4 text-center">
+          Already a user?{" "}
+          <Link href="/login" className="text-blue-400">
+            Login
+          </Link>
         </p>
       </CardContent>
     </Card>

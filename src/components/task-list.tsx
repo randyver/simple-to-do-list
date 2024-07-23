@@ -33,7 +33,7 @@ export default function TaskList() {
           <input
             type="text"
             placeholder="Search for Tasks"
-            className="w-full rounded-md border p-2 bg-[#2196F3] bg-opacity-10"
+            className="w-full rounded-md border p-2 bg-blue-50"
           />
           <Image src="/search-bar.svg" alt="search-bar" width={20} height={20}/>
         </div>
@@ -78,7 +78,7 @@ export default function TaskList() {
           <p className="font-semibold">Today's tasks</p>
         <div className="mt-2 space-y-2">
         {activities.map((activity, index) => (
-            <div key={index} className="flex items-center space-x-2 rounded-md border p-2 bg-[#2196F3] bg-opacity-10">
+            <div key={index} className="flex items-center space-x-2 rounded-md border p-2 bg-blue-50">
               <Checkbox />
               <div className="flex w-full justify-between">
                 <p>{activity.task}</p>

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -36,8 +36,6 @@ export default function LoginForm() {
   const router = useRouter();
 
   async function onSubmit(data: LoginFormValues) {
- 
-
     // Destructure form data
     const { email, password } = data;
 
@@ -53,29 +51,29 @@ export default function LoginForm() {
       redirect: false,
     });
 
-
     router.push("/");
     router.refresh();
   }
 
-
   return (
-    <Card className="mx-6 w-full md:w-6/12 md:w-5/12 lg:w-4/12 xl:w-3/12">
-      <CardHeader><CardTitle className="text-center lg:text-2xl text-bold xl:text-4xl">Login</CardTitle></CardHeader>
+    <Card className="mx-6 w-full md:w-5/12 md:w-6/12 lg:w-4/12 xl:w-3/12">
+      <CardHeader>
+        <CardTitle className="text-bold text-center lg:text-2xl xl:text-4xl">
+          Login
+        </CardTitle>
+      </CardHeader>
       <CardContent>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col gap-2 mx-auto max-w-md"
+            className="mx-auto flex max-w-md flex-col gap-2"
           >
             <FormField
               name="email"
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Email
-                  </FormLabel>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -93,9 +91,7 @@ export default function LoginForm() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Password
-                  </FormLabel>
+                  <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -109,13 +105,20 @@ export default function LoginForm() {
               )}
             />
             <FormDescription>
-              <Link href="/forgot-password" className="text-blue-400">Lupa Password?</Link>
+              <Link href="/forgot-password" className="text-blue-400">
+                Forgot Password?
+              </Link>
             </FormDescription>
-            <Button type="submit" className="mt-12 bg-blue-400">Login</Button>
+            <Button type="submit" className="mt-12 bg-blue-400 hover:bg-blue-200">
+              Login
+            </Button>
           </form>
         </Form>
-        <p className="text-center mt-4">
-          Belum memiliki akun? <Link href="/sign-up" className="text-blue-400">Sign Up</Link>
+        <p className="mt-4 text-center">
+          Don't have a account?{" "}
+          <Link href="/sign-up" className="text-blue-400">
+            Sign Up
+          </Link>
         </p>
       </CardContent>
     </Card>
